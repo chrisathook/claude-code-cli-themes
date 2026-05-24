@@ -1,0 +1,41 @@
+{
+  "name": "deutan-themes",
+  "displayName": "Deutan Themes",
+  "description": "VS Code / Cursor themes designed for severe deuteranopia. Blue-dominant palette, Okabe-Ito blue/orange diffs, magenta errors, no reliance on green-vs-red discrimination.",
+  "version": "1.0.0",
+  "publisher": "your-publisher-name",
+  "author": {
+    "name": "Your Name"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "color-theme",
+    "colorblind",
+    "accessibility",
+    "deutan",
+    "cvd",
+    "dark",
+    "light"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Deutan Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/deutan-dark-color-theme.json"
+      },
+      {
+        "label": "Deutan Light",
+        "uiTheme": "vs",
+        "path": "./themes/deutan-light-color-theme.json"
+      }
+    ]
+  }
+}

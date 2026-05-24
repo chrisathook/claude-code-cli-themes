@@ -36,6 +36,14 @@ The pre-selection step matters for ephemeral containers where you don't want to 
 
 Each theme's README documents what was changed from its source palette and the rationale behind the choices.
 
+## iTerm2 companion themes
+
+Matching iTerm2 color presets are in [`iterm2/`](iterm2/) — they share the same selection cue, cursor color, and overall palette philosophy as the Claude Code themes, so running Claude Code inside iTerm2 feels cohesive. See [iterm2/README.md](iterm2/README.md) for installation.
+
+## VS Code / Cursor companion themes
+
+Matching themes for VS Code and Cursor are in [`vscode/`](vscode/) as a single installable extension contributing both **Deutan Dark** and **Deutan Light**. Mirrors the Claude Code themes for selection cue, diff palette, and integrated-terminal ANSI colors. See [vscode/README.md](vscode/README.md) for installation methods.
+
 ## Contributing
 
 Pull requests welcome. Open an issue first if you want to propose a new theme so we can discuss the palette before you do the work. Each contribution should include both a JSON file in `themes/` and a paired markdown README explaining the color choices — the rationale is what makes a theme worth keeping around, not just the hex values.
