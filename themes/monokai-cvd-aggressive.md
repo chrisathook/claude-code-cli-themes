@@ -6,6 +6,16 @@ A Claude Code theme derived from the classic Monokai palette by Wimer Hazenberg,
 
 Copy `monokai-cvd-aggressive.json` into `~/.claude/themes/`, then run `/theme` in a Claude Code session and select **Monokai CVD Aggressive**.
 
+## Design principles
+
+Three principles drive every override in this theme.
+
+**Yellow is reserved exclusively as the selection and focus cue.** No other role in the theme uses yellow, so when something pops in this color the eye immediately reads it as "this is what's active right now" — not status, not branding, not warning. Yellow has the highest luminance of any saturated hue and is unambiguously distinguishable across all common CVD types.
+
+**Diffs use Okabe-Ito blue and orange instead of green and red.** Diff review is the highest-friction UI element for users with deuteranopia or protanopia because it's where the eye does the most fine-grained color comparison. Blue (added) and orange (removed) — the canonical CVD-safe pairing from Okabe and Ito's 2008 Color Universal Design palette — eliminates the discrimination problem on hue alone, reinforced by luminance.
+
+**Errors stay magenta, not red.** Pure red is the worst hue for CVD safety because it loses its primary channel for deutan and protan vision. Magenta retains its blue component even when red sensitivity is absent, so it still reads as a high-alarm signal across CVD types. This is also why Monokai's original pink is preserved in this variant rather than replaced.
+
 ## What this fixes vs. classic Monokai
 
 Monokai is already one of the more CVD-friendly popular palettes — its iconic pink/magenta and yellow-green pairing is genuinely distinguishable for deuteranopia and protanopia, which is better than most themes. The issues addressed by this variant are smaller but high-impact.
