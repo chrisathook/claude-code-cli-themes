@@ -30,7 +30,9 @@ The pre-selection step matters for ephemeral containers where you don't want to 
 
 | Theme | Base | Description |
 |---|---|---|
-| [Monokai CVD Aggressive](themes/monokai-cvd-aggressive.md) | `dark` | Monokai-derived with aggressive CVD safety — Okabe-Ito blue/orange diffs, bright yellow selection cue, brightened metadata text. |
+| [Deutan Dark](themes/deutan-dark.md) | `dark` | Personal high-contrast dark theme tuned to a specific strong-deutan cone profile (S=100%, L=75%, M=0%). Blue-dominant palette, cyan-teal replaces green, yellow selection cue. |
+| [Deutan Light](themes/deutan-light.md) | `light` | Light-mode counterpart to Deutan Dark. Selection cue switches to deep blue (yellow doesn't work on white), status colors darkened for white-background contrast. |
+| [Monokai CVD Aggressive](themes/monokai-cvd-aggressive.md) | `dark` | Generic CVD-friendly variant of Monokai. Okabe-Ito blue/orange diffs, yellow selection cue, brightened metadata. Less personalized than the Deutan themes — use these if you want Monokai's aesthetic and have any common form of CVD. |
 
 Each theme's README documents what was changed from its source palette and the rationale behind the choices.
 
