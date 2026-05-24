@@ -15,18 +15,18 @@ The selection cue, diff palette, and status colors mirror the Claude Code themes
 
 ### Option 1: Local extension (fastest for personal use)
 
-Drop the `vscode/` directory contents into the editor's extensions folder.
-
-For VS Code:
-```bash
-mkdir -p ~/.vscode/extensions/deutan-themes-1.0.0
-cp -r vscode/* ~/.vscode/extensions/deutan-themes-1.0.0/
-```
+VS Code and Cursor expect extension directories to be named `<publisher>.<name>-<version>`. The bundled `package.json` declares publisher `chrisw` and name `deutan-themes`, so the install directory must be `chrisw.deutan-themes-1.0.0` — not just `deutan-themes-1.0.0`. If you forked and changed the publisher, substitute your value.
 
 For Cursor:
 ```bash
-mkdir -p ~/.cursor/extensions/deutan-themes-1.0.0
-cp -r vscode/* ~/.cursor/extensions/deutan-themes-1.0.0/
+mkdir -p ~/.cursor/extensions/chrisw.deutan-themes-1.0.0
+cp -r vscode/* ~/.cursor/extensions/chrisw.deutan-themes-1.0.0/
+```
+
+For VS Code:
+```bash
+mkdir -p ~/.vscode/extensions/chrisw.deutan-themes-1.0.0
+cp -r vscode/* ~/.vscode/extensions/chrisw.deutan-themes-1.0.0/
 ```
 
 Restart the editor (or `Cmd+Shift+P` → **Developer: Reload Window**), then open the theme picker with `Cmd+K Cmd+T` and select **Deutan Dark** or **Deutan Light**.
@@ -46,11 +46,11 @@ code --install-extension deutan-themes-1.0.0.vsix
 cursor --install-extension deutan-themes-1.0.0.vsix
 ```
 
-Before running `vsce package`, edit `package.json` and replace `your-publisher-name` and `your-name` with real values — `vsce` will refuse to package an extension without a valid publisher.
+Installing via `.vsix` takes care of the directory naming automatically — no manual prefix needed.
 
 ### Option 3: Publish to the Marketplace
 
-For wider distribution, follow [VS Code's publishing guide](https://code.visualstudio.com/api/working-with-extensions/publishing-extension). You'll need a Microsoft Partner Center account and a personal access token. Cursor users can install marketplace extensions via the [Open VSX Registry](https://open-vsx.org/) or by manually downloading `.vsix` files.
+For wider distribution, follow [VS Code's publishing guide](https://code.visualstudio.com/api/working-with-extensions/publishing-extension). You'll need a Microsoft Partner Center account with a registered `chrisw` publisher and a personal access token. Cursor users can install marketplace extensions via the [Open VSX Registry](https://open-vsx.org/) or by manually downloading `.vsix` files.
 
 ## Switching themes
 

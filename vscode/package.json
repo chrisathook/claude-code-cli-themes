@@ -3,9 +3,9 @@
   "displayName": "Deutan Themes",
   "description": "VS Code / Cursor themes designed for severe deuteranopia. Blue-dominant palette, Okabe-Ito blue/orange diffs, magenta errors, no reliance on green-vs-red discrimination.",
   "version": "1.0.0",
-  "publisher": "your-publisher-name",
+  "publisher": "chrisw",
   "author": {
-    "name": "Your Name"
+    "name": "Chris W"
   },
   "license": "MIT",
   "engines": {
