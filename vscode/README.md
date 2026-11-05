@@ -13,32 +13,31 @@ The selection cue, diff palette, and status colors mirror the Claude Code themes
 
 ## Installation
 
-### Option 1: Local extension (fastest for personal use)
+> **Heads up:** Copying this folder into `~/.vscode/extensions/` by hand no longer works in current VS Code. The editor now treats `~/.vscode/extensions/extensions.json` as the list of installed extensions and ignores any folder that isn't registered there, even if the folder is named correctly. Use one of the options below instead.
 
-VS Code and Cursor expect extension directories to be named `<publisher>.<name>-<version>`. The bundled `package.json` declares publisher `chrisw` and name `deutan-themes`, so the install directory must be `chrisw.deutan-themes-1.0.0` — not just `deutan-themes-1.0.0`. If you forked and changed the publisher, substitute your value.
+### Option 1: Install from the folder (fastest for personal use)
 
-For Cursor:
-```bash
-mkdir -p ~/.cursor/extensions/chrisw.deutan-themes-1.0.0
-cp -r vscode/* ~/.cursor/extensions/chrisw.deutan-themes-1.0.0/
-```
+No build step is needed. VS Code installs the extension straight from the `vscode/` folder of this repo and registers it properly.
 
-For VS Code:
-```bash
-mkdir -p ~/.vscode/extensions/chrisw.deutan-themes-1.0.0
-cp -r vscode/* ~/.vscode/extensions/chrisw.deutan-themes-1.0.0/
-```
+1. Clone this repo, or pull the latest changes.
+2. In VS Code, open the Command Palette (`Cmd+Shift+P`).
+3. Run **Developer: Install Extension from Location…**
+4. Select the `vscode/` folder of this repo (the folder that contains `package.json`).
+5. Open the theme picker with `Cmd+K Cmd+T` and select **Deutan Dark** or **Deutan Light**.
 
-Restart the editor (or `Cmd+Shift+P` → **Developer: Reload Window**), then open the theme picker with `Cmd+K Cmd+T` and select **Deutan Dark** or **Deutan Light**.
+The same command is available in Cursor's Command Palette.
 
-### Option 2: Build a `.vsix` package
+**Updating:** After you pull changes to the theme JSON, run **Developer: Reload Window**. If the changes don't show up, run **Developer: Install Extension from Location…** again on the same folder.
 
-If you want a clean install/uninstall path or plan to share it with others on your team:
+**Uninstalling:** Open the Extensions view (`Cmd+Shift+X`), find **Deutan Themes**, and click **Uninstall**.
+
+### Option 2: Build a `.vsix` package (recommended for sharing or MDM deployment)
+
+A `.vsix` gives you a single file you can hand to teammates or push out with a deployment tool. It installs and uninstalls cleanly.
 
 ```bash
 cd vscode/
-npm install -g @vscode/vsce
-vsce package
+npx @vscode/vsce package
 # produces deutan-themes-1.0.0.vsix
 
 code --install-extension deutan-themes-1.0.0.vsix
@@ -46,11 +45,22 @@ code --install-extension deutan-themes-1.0.0.vsix
 cursor --install-extension deutan-themes-1.0.0.vsix
 ```
 
-Installing via `.vsix` takes care of the directory naming automatically — no manual prefix needed.
+You can also install the `.vsix` from the editor: in the Extensions view (`Cmd+Shift+X`), open the **`…`** menu and choose **Install from VSIX…**
+
+`vsce` warns when `package.json` has no `repository` field or the folder has no `LICENSE` file, and it asks whether to continue. Answer `y`. To stop the prompts, add a `repository` entry to `package.json` and put a `LICENSE` file in this folder.
+
+If the `code` or `cursor` command isn't found, open the Command Palette in that editor and run **Shell Command: Install 'code' command in PATH** (in Cursor, the command name refers to `cursor`).
 
 ### Option 3: Publish to the Marketplace
 
 For wider distribution, follow [VS Code's publishing guide](https://code.visualstudio.com/api/working-with-extensions/publishing-extension). You'll need a Microsoft Partner Center account with a registered `chrisw` publisher and a personal access token. Cursor users can install marketplace extensions via the [Open VSX Registry](https://open-vsx.org/) or by manually downloading `.vsix` files.
+
+### Troubleshooting: themes don't appear in the picker
+
+- **Did you copy the folder in by hand?** That method doesn't register the extension. Delete the copied folder with `rm -rf ~/.vscode/extensions/chrisw.deutan-themes-1.0.0`, then use Option 1 or Option 2.
+- **Are you on VS Code Insiders?** Insiders uses a separate extensions directory and its own CLI, `code-insiders`.
+- **Did you select the right folder?** For Option 1, choose the folder that contains `package.json` directly, not the repo root.
+- **Is the extension installed?** Check the Extensions view (`Cmd+Shift+X`) for **Deutan Themes**, or run `code --list-extensions | grep deutan`. You should see `chrisw.deutan-themes`.
 
 ## Switching themes
 
